@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Velvet – Adults only</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- AGE GATE -->
+<div class="overlay open" id="age" role="dialog" aria-modal="true" aria-labelledby="ageT">
+  <div class="sheet" style="text-align:center">
+    <h2 id="ageT">Adults only (18+)</h2>
+    <p>This app contains adult content. Confirm you are 18 or older and that viewing it is legal where you live.</p>
+    <div class="row"><button class="btn ghost" id="ageNo">Leave</button><button class="btn" id="ageYes">I am 18+</button></div>
+  </div>
+</div>
+
+<header>
+  <span class="logo">Velvet</span>
+  <div style="display:flex;gap:8px;align-items:center">
+    <span class="badge" id="status" hidden>Premium active</span>
+    <button class="btn" id="openPay">Unlock all</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Private nights, on demand.</h1>
+    <p>Browse the previews for free. Pay once with M-Pesa to unlock every video and gallery.</p>
+  </section>
+
+  <div class="tabs" id="tabs" role="group" aria-label="Categories"></div>
+  <div class="grid" id="grid"></div>
+
+  <div class="banner">
+    <div><h2 style="font-size:1.3rem">Unlock the full library</h2><span style="color:var(--muted)">Pay by M-Pesa Till. Access starts after your code is confirmed.</span></div>
+    <button class="btn" data-pay>See plans</button>
+  </div>
+</main>
+
+<footer>All performers are 18+ with documented consent. Report content: report@yourdomain.com<br>© Velvet. Adults only.</footer>
+
+<!-- PAYWALL -->
+<div class="overlay" id="pay" role="dialog" aria-modal="true" aria-labelledby="payT">
+  <div class="sheet">
+    <h2 id="payT">Unlock premium</h2>
+    <p>Choose a plan, then pay with M-Pesa.</p>
+    <div class="plans" id="plans"></div>
+    <ol class="steps">
+      <li>Open M-Pesa, then Lipa na M-Pesa, then Buy Goods.</li>
+      <li>Enter the Till Number below.</li>
+      <li>Enter the exact amount and your PIN.</li>
+      <li>Paste the M-Pesa code from the SMS here.</li>
+    </ol>
+    <div class="till"><div><span style="color:var(--muted);font-size:.8rem">Till Number</span><br><strong id="tillNo"></strong></div><button class="btn ghost" id="copyTill">Copy</button></div>
+    <div style="margin:6px 0"><span style="color:var(--muted)">Amount: </span><strong id="amt"></strong></div>
+    <label for="code" style="font-size:.85rem;color:var(--muted)">M-Pesa confirmation code</label>
+    <input id="code" maxlength="10" placeholder="e.g. SJK4X9ABCD" autocomplete="off">
+    <div class="err" id="err" role="alert"></div>
+    <div class="row"><button class="btn ghost" id="payClose">Cancel</button><button class="btn" id="confirm">Confirm payment</button></div>
+  </div>
+</div>
+
+<!-- VIEWER -->
+<div class="overlay" id="view" role="dialog" aria-modal="true" aria-labelledby="viewT">
+  <div class="sheet" style="max-width:640px">
+    <h2 id="viewT"></h2>
+    <div class="player" id="player"></div>
+    <div class="row"><button class="btn" id="viewClose">Close</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast">Premium unlocked</div>
+
+<script src="app.js"></script>
+</body>
+</html>
