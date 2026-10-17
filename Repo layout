@@ -1,4 +1,2 @@
 /index.html
-/style.css
-/app.js
-/media/   <- your videos and photos
+/media/   <- your videos and photos (video1.mp4, photo1.jpg, ...)
